@@ -1,0 +1,29 @@
+.nav-bar {
+  background-color: #3CA6CB;
+  height: 100vh;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  display: block;
+  padding: 15px 0;
+  border-bottom: 2px solid rgba(39, 115, 139, .4);
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+}
+
+.menu-item li {
+  padding: 0 0 0 20px;
+}
+
+.menu-item.active {
+  border-left: 3px solid #3BD3FF;
+  background-color: #27738E;
+}
