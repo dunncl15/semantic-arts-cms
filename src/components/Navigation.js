@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 const Navigation = () => {
   return (
@@ -10,7 +10,7 @@ const Navigation = () => {
                activeClassName='active'>
                <li>Dashboard</li>
       </NavLink>
-      <NavLink to='/pages'
+      <NavLink exact to='/pages'
                className="menu-item"
                activeClassName='active'>
                <li>Pages</li>
