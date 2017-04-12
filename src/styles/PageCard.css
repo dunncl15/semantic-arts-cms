@@ -1,0 +1,49 @@
+
+.page-card {
+  position: relative;
+  padding: 10px;
+  margin: 15px 0;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.page-title {
+  margin: 5px 0;
+  color: #3CA6CB;
+}
+
+.publish,
+.unpublish {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 2px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.publish {
+  background-color: #5DAF79;
+}
+
+.unpublish {
+  background-color: #CE5544;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+}
+
+.status {
+  margin: 0 0 0 auto;
+  color: #3CA6CB;
+  font-size: .85em;
+}
+
+.status span {
+  font-weight: 700;
+}
