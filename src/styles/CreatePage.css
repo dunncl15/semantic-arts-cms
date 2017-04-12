@@ -1,0 +1,33 @@
+.create-page-wrap {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.create-page-wrap > h3 {
+  width: 95%;
+  margin: 20px auto;
+  color: #3CA6CB;
+}
+
+.create-page {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px 5px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.create-page > * {
+  display: block;
+}
+
+label {
+  width: 95%;
+  margin: 0 auto;
+}
+
+#title,
+#body {
+  width: 95%;
+  margin: 0 auto 20px auto;
+}
