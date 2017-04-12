@@ -1,9 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PageCard from './PageCard';
 
-export default class Pages extends Component {
-  render() {
-    return (
-      <h3>Pages</h3>
-    )
-  }
+const Pages = ({ pages }) => {
+  const published = pages.filter(page => page.published);
+  const drafts = pages.filter(page => !page.published);
+  return (
+    <section className='pages-wrap'>
+      <h2>Pages</h2>
+      <p>All ({pages.length}) | Published ({published.length}) | Drafts ({drafts.length})</p>
+      {pages.map((page, i) =>
+        <PageCard {...page} key={ i }/>
+      )}
+    </section>
+  )
 }
+
+export default Pages;
