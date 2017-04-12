@@ -1,6 +1,14 @@
 import { connect } from 'react-redux';
+import * as actions from '../actions/actions';
 import CreatePage from '../components/CreatePage';
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addPage: (page) => {
+      dispatch(actions.addPage(page))
+    }
+  }
+}
 
 
-export default connect(null, null)(CreatePage);
+export default connect(null, mapDispatchToProps)(CreatePage);
