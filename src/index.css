@@ -1,9 +1,13 @@
 @import './styles/App.css';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
+  background-color: #ECF0F1;
   font-family: 'Open Sans', sans-serif;
 }

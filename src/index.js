@@ -21,7 +21,7 @@ const store = createStore(rootReducer, devTools, applyMiddleware(middleware, thu
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Route path='/' component={AppContainer}></Route>
+      <Route path='/admin' component={AppContainer}></Route>
     </ConnectedRouter>
   </Provider>
 )

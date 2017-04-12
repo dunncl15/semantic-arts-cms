@@ -9,7 +9,7 @@ const Navigation = () => {
   return (
     <aside className='nav-bar'>
      <ul>
-      <NavLink exact to='/'
+      <NavLink exact to='/admin'
                className="menu-item"
                activeClassName='active'>
                <li>
@@ -21,7 +21,7 @@ const Navigation = () => {
                  Dashboard
                </li>
       </NavLink>
-      <NavLink exact to='/pages'
+      <NavLink exact to='/admin/pages'
                className="menu-item"
                activeClassName='active'>
                <li>
@@ -33,7 +33,7 @@ const Navigation = () => {
                  Pages
                </li>
       </NavLink>
-      <NavLink to='/new-page'
+      <NavLink to='/admin/new-page'
                className="menu-item"
                activeClassName='active'>
                <li>
