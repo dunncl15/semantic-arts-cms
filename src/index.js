@@ -25,7 +25,7 @@ const store = createStore(
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Route path='/admin' component={AppContainer}></Route>
+      <Route path='/' component={AppContainer}></Route>
     </ConnectedRouter>
   </Provider>
 )
