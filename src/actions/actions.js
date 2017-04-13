@@ -5,3 +5,10 @@ export const addPage = (page) => {
     page
   }
 };
+
+export const editPage = (page) => {
+  return {
+    type: 'EDIT_PAGE',
+    page
+  }
+}
