@@ -6,6 +6,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addPage: (page) => {
       dispatch(actions.addPage(page))
+    },
+    editPage: (page) => {
+      dispatch(actions.editPage(page))
     }
   }
 }
