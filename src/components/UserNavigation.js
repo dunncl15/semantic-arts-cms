@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-const UserNavigation = () => {
+const UserNavigation = ({ userNav }) => {
   return (
-    <div>
-     <NavLink to='/pages'>Test</NavLink>
-    </div>
+    <nav className="user-nav">
+      <NavLink className='home nav-item' to='/'>Home</NavLink>
+      {userNav.map((title, i) => <NavLink className='nav-item' key={i} to='/'>{ title }</NavLink>)}
+    </nav>
   )
 }
 
