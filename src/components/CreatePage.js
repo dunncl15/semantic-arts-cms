@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
 import Editor from './Editor.js';
 
 export default class CreatePage extends Component {
@@ -29,11 +28,7 @@ export default class CreatePage extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    if (this.props.page) {
-      this.props.editPage(this.state)
-    } else {
-      this.props.addPage(this.state);
-    }
+    this.props.page ? this.props.editPage(this.state) : this.props.addPage(this.state);
     this.setState({ title: '' })
     this.props.history.push('/admin/pages');
   }
