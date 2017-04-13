@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import RichTextEditor from 'react-rte';
+import Editor from './Editor.js'
 
 export default class CreatePage extends Component {
   constructor() {
     super();
     this.state = {
       title: '',
-      body: '',
+      content: '',
       published: false
     }
   }
 
   handleChange(e) {
-    const { name, value } = e.target;
     this.setState({
-      [name]: value
+      title: e.target.value
     })
   }
 
@@ -22,9 +21,12 @@ export default class CreatePage extends Component {
     e.preventDefault();
     this.props.addPage(this.state);
     this.setState({
-      title: '',
-      body: ''
+      title: ''
     })
+  }
+
+  handleEdit(e) {
+    this.setState({ content: e})
   }
 
   render() {
@@ -39,13 +41,7 @@ export default class CreatePage extends Component {
                  value={this.state.title}
                  onChange={(e) => this.handleChange(e)}
           />
-          <label htmlFor='body'>Body:</label>
-          <textarea type='text'
-                    id='body'
-                    name='body'
-                    value={this.state.body}
-                    onChange={(e) => this.handleChange(e)}>
-          </textarea>
+          <Editor onChange={this.handleEdit.bind(this)}/>
           <button className='save-btn'
                   onClick={(e) => this.handleClick(e)}>
                   Save page
