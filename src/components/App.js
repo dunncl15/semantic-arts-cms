@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import Navigation from './Navigation';
-import UserNavigation from './UserNavigation';
+import UserNavigationContainer from '../containers/UserNavigationContainer.js';
 import PagesContainer from '../containers/PagesContainer.js';
 import HeaderContainer from '../containers/HeaderContainer.js';
 import CreatePageContainer from '../containers/CreatePageContainer.js';
@@ -11,7 +11,7 @@ const App = ({ pages, history }) => {
 
   return (
     <main className='App'>
-      <Route exact path='/' component={ UserNavigation }></Route>
+      <Route exact path='/' component={ UserNavigationContainer }></Route>
       <Route path='/admin' component={ HeaderContainer }></Route>
       <Route path='/admin' component={ Navigation }></Route>
       <Route exact path='/admin/pages' component={ PagesContainer }></Route>
