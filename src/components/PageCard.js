@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-const PageCard = ({ title, content, published }) => {
+const PageCard = ({ title, content, published, addToNav, history }) => {
   const btnClass = classNames({
     'unpublish': published,
     'publish': !published
@@ -14,7 +14,8 @@ const PageCard = ({ title, content, published }) => {
       <button className={btnClass}>{ published ? 'Unpublish' : 'Publish' }</button>
       <footer className='card-footer'>
         <Link to={`pages/edit/${title}`}>Edit page</Link>
-        <button>Add to navigation</button>
+        <button onClick={() => addToNav(title)}>Add to navigation</button>
+        <button onClick={() => history.push('/')}></button>
         <p className='status'><span>Status</span>: { published ? 'published' : 'unpublished' }</p>
       </footer>
     </article>
