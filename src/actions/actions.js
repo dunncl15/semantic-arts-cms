@@ -12,3 +12,10 @@ export const editPage = (page) => {
     page
   }
 }
+
+export const addToNav = (pageName) => {
+  return {
+    type: 'ADD_TO_NAV',
+    pageName
+  }
+}
