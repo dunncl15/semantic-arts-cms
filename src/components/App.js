@@ -6,13 +6,18 @@ import PagesContainer from '../containers/PagesContainer.js';
 import HeaderContainer from '../containers/HeaderContainer.js';
 import CreatePageContainer from '../containers/CreatePageContainer.js';
 
-const App = ({ pages }) => {
+const App = ({ pages, history }) => {
+
   return (
-    <main className="App">
+    <main className='App'>
       <HeaderContainer />
       <Navigation />
-      <Route exact path="/admin/pages" component={ PagesContainer }></Route>
-      <Route exact path="/admin/new-page" component={ CreatePageContainer }></Route>
+      <Route exact path='/admin/pages' component={ PagesContainer }></Route>
+      <Route exact path='/admin/new-page' component={ CreatePageContainer }></Route>
+      <Route path='/admin/pages/edit/:title' render={ ({ match }) => {
+        const page = pages.find(page => page.title === match.params.title);
+        return <CreatePageContainer page={page} history={history}/>
+      }}></Route>
     </main>
   );
 }
