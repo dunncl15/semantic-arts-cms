@@ -9,10 +9,16 @@ export default class Editor extends Component {
     }
   }
 
-  onChange = (value) => {
+  componentDidMount() {
+    if (this.props.content) {
+      this.setState({ value: this.props.content })
+    }
+  }
+
+  handleChange = (value) => {
     this.setState({value});
-    if (this.props.onChange) {
-      this.props.onChange(
+    if (this.props.handleChange) {
+      this.props.handleChange(
         value.toString('html')
       );
     }
@@ -20,7 +26,9 @@ export default class Editor extends Component {
 
   render() {
     return (
-      <RichTextEditor value={this.state.value}  onChange={this.onChange}/>
+      <RichTextEditor value={this.state.value}
+                      onChange={this.handleChange}
+      />
     )
   }
 }
