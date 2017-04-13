@@ -10,10 +10,10 @@ const PageCard = ({ title, content, published }) => {
   return (
     <article className='page-card'>
       <h2 className='page-title'>{ title }</h2>
-      <p className='page-body'>{ content }</p>
+      <div className='page-body' dangerouslySetInnerHTML={{__html: content}}></div>
       <button className={btnClass}>{ published ? 'Unpublish' : 'Publish' }</button>
       <footer className='card-footer'>
-        <Link to=''><button>Edit page</button></Link>
+        <Link to={`pages/edit/${title}`}>Edit page</Link>
         <button>Add to navigation</button>
         <p className='status'><span>Status</span>: { published ? 'published' : 'unpublished' }</p>
       </footer>
