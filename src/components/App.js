@@ -6,17 +6,15 @@ import PagesContainer from '../containers/PagesContainer.js';
 import HeaderContainer from '../containers/HeaderContainer.js';
 import CreatePageContainer from '../containers/CreatePageContainer.js';
 
-class App extends Component {
-  render() {
-    return (
-      <main className="App">
-        <HeaderContainer />
-        <Navigation />
-        <Route exact path="/admin/pages" component={ PagesContainer }></Route>
-        <Route exact path="/admin/new-page" component={ CreatePageContainer }></Route>
-      </main>
-    );
-  }
+const App = ({ pages }) => {
+  return (
+    <main className="App">
+      <HeaderContainer />
+      <Navigation />
+      <Route exact path="/admin/pages" component={ PagesContainer }></Route>
+      <Route exact path="/admin/new-page" component={ CreatePageContainer }></Route>
+    </main>
+  );
 }
 
 export default App;
