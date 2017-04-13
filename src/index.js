@@ -9,14 +9,18 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 
-import rootReducer from './reducers/index';
+import { pages } from './reducers/pagesReducer';
 import AppContainer from './containers/AppContainer';
 import './index.css';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const history = createHistory();
 const middleware = routerMiddleware(history);
-const store = createStore(rootReducer, devTools, applyMiddleware(middleware, thunk, logger));
+const store = createStore(
+  combineReducers({
+    pages,
+    router: routerReducer
+  }), devTools, applyMiddleware(middleware, thunk, logger));
 
 const router = (
   <Provider store={store}>

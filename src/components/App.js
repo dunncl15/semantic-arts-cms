@@ -6,7 +6,6 @@ import PagesContainer from '../containers/PagesContainer.js';
 import HeaderContainer from '../containers/HeaderContainer.js';
 import CreatePageContainer from '../containers/CreatePageContainer.js';
 
-
 class App extends Component {
   render() {
     return (
