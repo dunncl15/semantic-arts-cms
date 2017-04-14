@@ -14,16 +14,14 @@ const App = ({ pages, history }) => {
     <main className='App'>
       <Route path='/' component={ UserNavigationContainer }></Route>
       <Route path='/pages/:title' render={ ({ match }) => {
-        console.log(match);
         const page = pages.find(page => page.title.toLowerCase() === match.params.title.toLowerCase());
-        return <Page page={page} />
+        return page.published ? <Page page={page} /> : <div>Not Found</div>
       }}></Route>
       <Route path='/admin' component={ HeaderContainer }></Route>
       <Route path='/admin' component={ Navigation }></Route>
       <Route exact path='/admin/pages' component={ PagesContainer }></Route>
       <Route exact path='/admin/new-page' component={ CreatePageContainer }></Route>
       <Route path='/admin/pages/edit/:id' render={ ({ match }) => {
-        console.log(match);
         const page = pages.find(page => page.id === parseInt(match.params.id));
         return <CreatePageContainer page={page} history={history}/>
       }}></Route>
