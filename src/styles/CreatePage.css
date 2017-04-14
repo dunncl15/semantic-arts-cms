@@ -34,4 +34,5 @@ label {
 
 .RichTextEditor__root___2QXK- {
   height: 400px;
+  overflow: auto;
 }
