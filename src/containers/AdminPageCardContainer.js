@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
-import PageCard from '../components/PageCard.js';
+import AdminPageCard from '../components/AdminPageCard.js';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PageCard);
+export default connect(null, mapDispatchToProps)(AdminPageCard);
