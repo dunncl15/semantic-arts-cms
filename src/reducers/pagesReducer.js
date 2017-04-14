@@ -6,11 +6,17 @@ export const pages = (state = [], action) => {
       break;
     case 'EDIT_PAGE':
       const index = state.findIndex(page => page.title === action.page.title);
-      const editedPage = Object.assign({}, action.page)
       return [
         ...state.slice(0, index),
-        editedPage,
+        {...action.page},
         ...state.slice(index + 1)
+      ];
+    case 'TOGGLE_PUBLISH':
+      const i = state.findIndex(page => page.title === action.page.title);
+      return [
+        ...state.slice(0, i),
+        {...action.page, published: !action.page.published},
+        ...state.slice(i + 1)
       ];
     default:
       return state;
