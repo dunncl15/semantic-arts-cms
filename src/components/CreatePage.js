@@ -7,7 +7,8 @@ export default class CreatePage extends Component {
     this.state = {
       title: '',
       content: '',
-      published: false
+      published: false,
+      id: Date.now()
     }
   }
 
