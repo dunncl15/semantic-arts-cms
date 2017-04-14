@@ -11,6 +11,7 @@ export const pages = (state = [], action) => {
         {...action.page},
         ...state.slice(index + 1)
       ];
+      break;
     case 'TOGGLE_PUBLISH':
       const i = state.findIndex(page => page.title === action.page.title);
       return [
@@ -18,6 +19,7 @@ export const pages = (state = [], action) => {
         {...action.page, published: !action.page.published},
         ...state.slice(i + 1)
       ];
+      break;
     default:
       return state;
   }
