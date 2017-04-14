@@ -13,9 +13,9 @@ export const editPage = (page) => {
   }
 }
 
-export const addToNav = (pageName) => {
+export const addToNav = (page) => {
   return {
     type: 'ADD_TO_NAV',
-    pageName
+    page
   }
 }
