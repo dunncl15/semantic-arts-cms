@@ -12,6 +12,11 @@
   color: #3CA6CB;
 }
 
+.page-body {
+  height: 64px;
+  overflow: hidden;
+}
+
 .publish,
 .unpublish {
   position: absolute;
@@ -36,6 +41,7 @@
 .card-footer {
   display: flex;
   align-items: center;
+  padding: 15px 0 0 0;
 }
 
 .status {
