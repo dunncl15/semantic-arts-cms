@@ -19,3 +19,10 @@ export const addToNav = (page) => {
     page
   }
 }
+
+export const togglePublish = (page) => {
+  return {
+    type: 'TOGGLE_PUBLISH',
+    page
+  }
+}
