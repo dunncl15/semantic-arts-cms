@@ -1,5 +1,5 @@
 import React from 'react';
-import PageCardContainer from '../containers/PageCardContainer.js';
+import AdminPageCardContainer from '../containers/AdminPageCardContainer.js';
 
 const Pages = ({ pages, history }) => {
   const published = pages.filter(page => page.published);
@@ -9,7 +9,7 @@ const Pages = ({ pages, history }) => {
       <h2>Pages</h2>
       <p>All ({pages.length}) | Published ({published.length}) | Drafts ({drafts.length})</p>
       {pages.map((page, i) =>
-        <PageCardContainer {...page} history={history} key={ i }/>
+        <AdminPageCardContainer {...page} history={history} key={ i }/>
       )}
     </section>
   )
