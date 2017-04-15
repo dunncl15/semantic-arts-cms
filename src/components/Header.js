@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../styles/images/logo.png'
 
-export default class Header extends Component {
-
-  render() {
-    return (
-      <header>
-        <h1>Semantic Arts</h1>
-      </header>
-    )
-  }
+const Header = ({ history }) => {
+  return (
+    <header>
+      <img src={logo} className='app-title' />
+      <Link to='/'>Sign out</Link>
+    </header>
+  )
 }
+
+export default Header;
