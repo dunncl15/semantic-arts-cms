@@ -10,11 +10,11 @@ const mapDispatchToProps = (dispatch) => {
     editPage: (page) => {
       dispatch(actions.editPage(page))
     },
-    editPublished: (page) => {
-      dispatch(actions.editPublished(page))
+    togglePublish: (page) => {
+      dispatch(actions.togglePublish(page))
     },
-    editPubNav: (page) => {
-      dispatch(actions.editPubNav(page))
+    toggleNavPublish: (page) => {
+      dispatch(actions.toggleNavPublish(page))
     }
   }
 }
