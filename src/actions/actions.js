@@ -13,16 +13,51 @@ export const editPage = (page) => {
   }
 }
 
-export const addToNav = (page) => {
+export const editPublished = (page) => {
+  return {
+    type: 'EDIT_PUBLISHED',
+    page
+  }
+}
+
+export const editPubNav = (page) => {
+  return {
+    type: 'EDIT_PUB_NAV',
+    page
+  }
+}
+
+export const addToNav = (title) => {
   return {
     type: 'ADD_TO_NAV',
-    page
+    title
+  }
+}
+
+export const removeFromNav = (title) => {
+  return {
+    type: 'REMOVE_FROM_NAV',
+    title
   }
 }
 
 export const togglePublish = (page) => {
   return {
     type: 'TOGGLE_PUBLISH',
+    page
+  }
+}
+
+export const toggleNav = (page) => {
+  return {
+    type: 'TOGGLE_NAV',
+    page
+  }
+}
+
+export const toggleNavPublish = (page) => {
+  return {
+    type: 'TOGGLE_NAV_PUBLISH',
     page
   }
 }
