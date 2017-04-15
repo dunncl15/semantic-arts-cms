@@ -13,20 +13,6 @@ export const editPage = (page) => {
   }
 }
 
-export const editPublished = (page) => {
-  return {
-    type: 'EDIT_PUBLISHED',
-    page
-  }
-}
-
-export const editPubNav = (page) => {
-  return {
-    type: 'EDIT_PUB_NAV',
-    page
-  }
-}
-
 export const addToNav = (title) => {
   return {
     type: 'ADD_TO_NAV',
