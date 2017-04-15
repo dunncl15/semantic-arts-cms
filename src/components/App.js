@@ -16,10 +16,12 @@ const App = ({ pages, history }) => {
         const page = pages.find(page => page.title.toLowerCase() === match.params.title.toLowerCase());
         return page.published ? <Page page={page} /> : <div>Not Found</div>
       }}></Route>
-      <Route path='/admin' component={ HeaderContainer }></Route>
-      <Route path='/admin' component={ Navigation }></Route>
-      <Route exact path='/admin/pages' component={ PagesContainer }></Route>
-      <Route exact path='/admin/new-page' component={ CreatePageContainer }></Route>
+        <Route path='/admin' component={ HeaderContainer }></Route>
+      <section className='main-content'>
+        <Route path='/admin' component={ Navigation }></Route>
+        <Route exact path='/admin/pages' component={ PagesContainer }></Route>
+        <Route exact path='/admin/new-page' component={ CreatePageContainer }></Route>
+      </section>
       <Route path='/admin/pages/edit/:title' render={ ({ match }) => {
         const page = pages.find(page => page.title === match.params.title);
         return <CreatePageContainer page={page} history={history}/>
