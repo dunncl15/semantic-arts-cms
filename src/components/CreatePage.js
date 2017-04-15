@@ -8,6 +8,7 @@ export default class CreatePage extends Component {
       title: '',
       content: '',
       published: false,
+      navigation: false,
       id: Date.now()
     }
   }
@@ -29,13 +30,24 @@ export default class CreatePage extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.page ? this.props.editPage(this.state) : this.props.addPage(this.state);
+    if (!this.props.page) {
+      this.props.addPage(this.state)
+    }
+    if (this.props.page && !this.props.page.published) {
+      this.props.editPage(this.state)
+    }
+    if (this.props.page && this.props.page.published) {
+      this.props.editPublished(this.state)
+    }
+    if (this.props.page && this.props.page.published & this.props.page.navigation) {
+      this.props.editPubNav(this.state)
+    }
     this.setState({ title: '' })
     this.props.history.push('/admin/pages');
   }
 
   handleEdit(e) {
-    this.setState({ content: e})
+    this.setState({ content: e })
   }
 
   render() {
