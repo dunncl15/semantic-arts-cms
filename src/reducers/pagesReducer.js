@@ -11,22 +11,6 @@ export const pages = (state = [], action) => {
         ...state.slice(index + 1)
       ];
       break;
-    case 'EDIT_PUBLISHED':
-      const ind = state.findIndex(page => page.title === action.page.title);
-      return [
-        ...state.slice(0, ind),
-        {...action.page, published: true},
-        ...state.slice(ind + 1)
-      ];
-      break;
-    case 'EDIT_PUB_NAV':
-      const x = state.findIndex(page => page.title === action.page.title);
-      return [
-        ...state.slice(0, x),
-        {...action.page, published: true, navigation: true},
-        ...state.slice(x + 1)
-      ];
-      break;
     case 'TOGGLE_PUBLISH':
       const i = state.findIndex(page => page.title === action.page.title);
       return [
