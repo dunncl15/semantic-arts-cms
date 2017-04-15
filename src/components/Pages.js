@@ -9,7 +9,13 @@ const Pages = ({ pages, userNav, history }) => {
       <h2>Pages</h2>
       <p>All ({pages.length}) | Published ({published.length}) | Drafts ({drafts.length})</p>
       {pages.map((page, i) =>
-        <AdminPageCardContainer {...page} userNav={userNav} history={history} key={ i }/>
+        <AdminPageCardContainer
+          {...page}
+          i={i}
+          userNav={userNav}
+          history={history}
+          key={i}
+      />
       )}
     </section>
   )
