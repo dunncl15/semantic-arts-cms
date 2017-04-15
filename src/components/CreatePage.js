@@ -1,51 +1,74 @@
 import React, { Component } from 'react';
-import RichTextEditor from 'react-rte';
+import Editor from './Editor.js';
 
 export default class CreatePage extends Component {
   constructor() {
     super();
     this.state = {
       title: '',
-      body: '',
-      published: false
+      content: '',
+      published: false,
+      navigation: false,
+      id: Date.now()
+    }
+  }
+
+  componentDidMount() {
+    const { page } = this.props;
+    if (page) {
+      this.setState({
+        title: page.title,
+        content: page.content
+       })
     }
   }
 
   handleChange(e) {
-    const { name, value } = e.target;
     this.setState({
-      [name]: value
+      title: e.target.value
     })
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.props.addPage(this.state);
-    this.setState({
-      title: '',
-      body: ''
-    })
+    const { page, addPage, editPage, togglePublish, toggleNavPublish, history } = this.props;
+    if (!page) {
+      addPage(this.state)
+    }
+    if (page && !page.published) {
+      editPage(this.state)
+    }
+    if (page && page.published) {
+      togglePublish(this.state)
+    }
+    if (page && page.published && page.navigation) {
+      toggleNavPublish(this.state)
+    }
+    this.setState({ title: '' })
+    history.push('/admin/pages');
+  }
+
+  handleEdit(e) {
+    this.setState({ content: e })
   }
 
   render() {
+    const { page } = this.props;
+    const { title, content } = this.state;
     return (
       <section className="create-page-wrap">
-        <h2>Create Page</h2>
+        {page ? <h2>Edit - {page.title}</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
           <label htmlFor='title'>Title:</label>
           <input type='text'
                  id='title'
                  name='title'
-                 value={this.state.title}
+                 value={title}
                  onChange={(e) => this.handleChange(e)}
           />
-          <label htmlFor='body'>Body:</label>
-          <textarea type='text'
-                    id='body'
-                    name='body'
-                    value={this.state.body}
-                    onChange={(e) => this.handleChange(e)}>
-          </textarea>
+          <Editor handleChange={this.handleEdit.bind(this)}
+                  content={content}
+          />
           <button className='save-btn'
                   onClick={(e) => this.handleClick(e)}>
                   Save page

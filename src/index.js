@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import createHistory from 'history/createBrowserHistory'
@@ -10,6 +9,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import { pages } from './reducers/pagesReducer';
+import { userNav } from './reducers/userNavReducer';
 import AppContainer from './containers/AppContainer';
 import './index.css';
 
@@ -19,13 +19,14 @@ const middleware = routerMiddleware(history);
 const store = createStore(
   combineReducers({
     pages,
+    userNav,
     router: routerReducer
   }), devTools, applyMiddleware(middleware, thunk, logger));
 
 const router = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Route path='/admin' component={AppContainer}></Route>
+      <Route path='/' component={AppContainer}></Route>
     </ConnectedRouter>
   </Provider>
 )

@@ -1,0 +1,17 @@
+.user-nav{
+  display: flex;
+  align-items: center;
+  background-color: #3CA6CB;
+  padding: 15px 5px;
+}
+
+.nav-item {
+  display: block;
+  margin: 0 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.home {
+  margin: 0 auto 0 0;
+}
