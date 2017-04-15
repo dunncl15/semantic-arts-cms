@@ -14,10 +14,11 @@ export default class CreatePage extends Component {
   }
 
   componentDidMount() {
-    if (this.props.page) {
+    const { page } = this.props;
+    if (page) {
       this.setState({
-        title: this.props.page.title,
-        content: this.props.page.content
+        title: page.title,
+        content: page.content
        })
     }
   }
@@ -30,20 +31,21 @@ export default class CreatePage extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    if (!this.props.page) {
-      this.props.addPage(this.state)
+    const { page, addPage, editPage, togglePublish, toggleNavPublish, history } = this.props;
+    if (!page) {
+      addPage(this.state)
     }
-    if (this.props.page && !this.props.page.published) {
-      this.props.editPage(this.state)
+    if (page && !page.published) {
+      editPage(this.state)
     }
-    if (this.props.page && this.props.page.published) {
-      this.props.editPublished(this.state)
+    if (page && page.published) {
+      togglePublish(this.state)
     }
-    if (this.props.page && this.props.page.published & this.props.page.navigation) {
-      this.props.editPubNav(this.state)
+    if (page && page.published && page.navigation) {
+      toggleNavPublish(this.state)
     }
     this.setState({ title: '' })
-    this.props.history.push('/admin/pages');
+    history.push('/admin/pages');
   }
 
   handleEdit(e) {
@@ -51,19 +53,21 @@ export default class CreatePage extends Component {
   }
 
   render() {
+    const { page } = this.props;
+    const { title, content } = this.state;
     return (
       <section className="create-page-wrap">
-        {this.props.page ? <h2>Edit - {this.props.page.title}</h2> : <h2>Create Page</h2>}
+        {page ? <h2>Edit - {page.title}</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
           <label htmlFor='title'>Title:</label>
           <input type='text'
                  id='title'
                  name='title'
-                 value={this.state.title}
+                 value={title}
                  onChange={(e) => this.handleChange(e)}
           />
           <Editor handleChange={this.handleEdit.bind(this)}
-                  content={this.state.content}
+                  content={content}
           />
           <button className='save-btn'
                   onClick={(e) => this.handleClick(e)}>
