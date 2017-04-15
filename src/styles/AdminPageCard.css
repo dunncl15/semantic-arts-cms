@@ -13,7 +13,7 @@
 }
 
 .page-body {
-  height: 64px;
+  height: 56px;
   color: #666;
   overflow: hidden;
 }
@@ -23,12 +23,15 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  display: block;
-  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  padding: 1px 7px;
   border-radius: 2px;
   border-style: none;
   color: #fff;
   cursor: pointer;
+  font-size: .5em;
+  text-transform: uppercase;
 }
 
 .publish {
@@ -39,18 +42,78 @@
   background-color: #CE5544;
 }
 
+.cloud-icon {
+  display: block;
+  margin: 0 5px 0 0;
+  height: 18px;
+  width: 18px;
+}
+
 .card-footer {
   display: flex;
   align-items: center;
   padding: 15px 0 0 0;
+  font-size: .6em;
+}
+
+.edit {
+  margin: 0 10px 0 0;
+  display: flex;
+  align-items: center;
+  color: #3CA6CB;
+  font-family: 'Georgia', sans-serif;
+  text-decoration: none;
+}
+
+.pencil-blue,
+.add-icon {
+  display: block;
+  margin: 0 5px 0 0;
+  height: 15px;
+  width: 15px;
+}
+
+.add-to-nav-btn {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-style: none;
+  color: #3CA6CB;
+  cursor: pointer;
+  font-family: 'Georgia', sans-serif;
+  font-size: 1em;
 }
 
 .status {
   margin: 0 0 0 auto;
   color: #3CA6CB;
-  font-size: .85em;
 }
 
 .status span {
   font-weight: 700;
+}
+
+@media screen and (min-width: 375px) {
+
+  .publish,
+  .unpublish {
+    padding: 3px 7px;
+    font-size: .65em;
+  }
+
+  .card-footer {
+    font-size: .75em;
+  }
+}
+
+@media screen and (min-width: 414px) {
+
+  .publish,
+  .unpublish {
+    font-size: .7em;
+  }
+
+  .card-footer {
+    font-size: .85em;
+  }
 }

@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.create-page-wrap > h3 {
+.create-page-wrap > h2 {
   width: 95%;
   margin: 20px auto;
   color: #3CA6CB;
@@ -35,4 +35,16 @@ label {
 .RichTextEditor__root___2QXK- {
   height: 400px;
   overflow: auto;
+}
+
+@media screen and (min-width: 768px) {
+
+  .create-page-wrap {
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    right: 25px;
+    top: 70px;
+  }
+
 }
