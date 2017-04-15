@@ -7,7 +7,7 @@ const Pages = ({ pages, userNav, history }) => {
   return (
     <section className='pages-wrap'>
       <h2>Pages</h2>
-      <p>All ({pages.length}) | Published ({published.length}) | Drafts ({drafts.length})</p>
+      <p className='pages-summary'>All ({pages.length}) | Published ({published.length}) | Drafts ({drafts.length})</p>
       {pages.map((page, i) =>
         <AdminPageCardContainer
           {...page}
