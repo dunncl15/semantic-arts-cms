@@ -59,11 +59,11 @@ export default class CreatePage extends Component {
       <section className="create-page-wrap">
         {page ? <h2>Edit - {page.title}</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
-          <label htmlFor='title'>Title:</label>
           <input type='text'
                  id='title'
                  name='title'
                  value={title}
+                 placeholder='Page title'
                  onChange={(e) => this.handleChange(e)}
           />
           <Editor handleChange={this.handleEdit.bind(this)}
