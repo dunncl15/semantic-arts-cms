@@ -2,6 +2,10 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 import CreatePage from '../components/CreatePage';
 
+const mapStateToProps = (state) => {
+  return state;
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addPage: (page) => {
@@ -20,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(CreatePage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);
