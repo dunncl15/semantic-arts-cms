@@ -3,36 +3,36 @@ export const pages = (state = [], action) => {
     case 'ADD_PAGE':
       return [...state, action.page];
       break;
+    case 'DELETE_PAGE':
+      return state.filter(page => page.id !== action.id);
+      break;
     case 'EDIT_PAGE':
       const index = state.findIndex(page => page.title === action.page.title);
       return [
         ...state.slice(0, index),
-        {...action.page},
+        {...action.page, id: action.page.id, content: action.page.content},
         ...state.slice(index + 1)
       ];
       break;
     case 'TOGGLE_PUBLISH':
-      const i = state.findIndex(page => page.title === action.page.title);
       return [
-        ...state.slice(0, i),
+        ...state.slice(0, action.index),
         {...action.page, published: !action.page.published},
-        ...state.slice(i + 1)
+        ...state.slice(action.index + 1)
       ];
       break;
     case 'TOGGLE_NAV':
-      const ix = state.findIndex(page => page.title === action.page.title);
       return [
-        ...state.slice(0, ix),
+        ...state.slice(0, action.index),
         {...action.page, navigation: !action.page.navigation},
-        ...state.slice(ix + 1)
+        ...state.slice(action.index + 1)
       ];
       break;
     case 'TOGGLE_NAV_PUBLISH':
-      const idx = state.findIndex(page => page.title === action.page.title);
       return [
-        ...state.slice(0, idx),
+        ...state.slice(0, action.index),
         {...action.page, published: !action.page.published, navigation: !action.page.navigation},
-        ...state.slice(idx + 1)
+        ...state.slice(action.index + 1)
       ];
       break;
     default:
