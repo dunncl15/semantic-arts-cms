@@ -24,8 +24,8 @@ const App = ({ pages, history, location }) => {
         <Route exact path='/admin/pages' component={ PagesContainer } />
         <Route exact path='/admin/new-page' component={ CreatePageContainer } />
       </section>
-      <Route path='/admin/pages/edit/:title' render={ ({ match }) => {
-        const page = pages.find(page => page.title === match.params.title);
+      <Route path='/admin/pages/edit/:id' render={ ({ match }) => {
+        const page = pages.find(page => page.id === parseInt(match.params.id, 10));
         return <CreatePageContainer page={page} history={history} />
       }} />
     </main>
