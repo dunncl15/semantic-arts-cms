@@ -31,18 +31,12 @@ export default class CreatePage extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    const { page, addPage, editPage, togglePublish, toggleNavPublish, history } = this.props;
+    const { page, addPage, editPage, history } = this.props;
     if (!page) {
       addPage(this.state)
     }
     if (page && !page.published) {
       editPage(this.state)
-    }
-    if (page && page.published) {
-      togglePublish(this.state)
-    }
-    if (page && page.published && page.navigation) {
-      toggleNavPublish(this.state)
     }
     this.setState({ title: '' })
     history.push('/admin/pages');
@@ -54,13 +48,13 @@ export default class CreatePage extends Component {
 
   render() {
     const { page, router } = this.props;
-    const { title, content } = this.state;
+    const { title } = this.state;
     return (
       <section className="create-page-wrap">
         {page ? <h2>Edit - { page.title }</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
-          { router.location.pathname.includes('/admin/new-page') &&
-          <input type='text'
+        { router.location.pathname.includes('/admin/new-page') &&
+        <input type='text'
                  id='title'
                  name='title'
                  value={title}
