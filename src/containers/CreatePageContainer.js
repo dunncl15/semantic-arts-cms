@@ -14,11 +14,11 @@ const mapDispatchToProps = (dispatch) => {
     editPage: (page) => {
       dispatch(actions.editPage(page))
     },
-    togglePublish: (page) => {
-      dispatch(actions.togglePublish(page))
+    togglePublish: (page, index) => {
+      dispatch(actions.togglePublish(page, index))
     },
-    toggleNavPublish: (page) => {
-      dispatch(actions.toggleNavPublish(page))
+    toggleNavPublish: (page, index) => {
+      dispatch(actions.toggleNavPublish(page, index))
     }
   }
 }

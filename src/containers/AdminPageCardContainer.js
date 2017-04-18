@@ -8,20 +8,23 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToNav: (title) => {
-      dispatch(actions.addToNav(title))
+    addToNav: (page) => {
+      dispatch(actions.addToNav(page))
     },
-    removeFromNav: (title) => {
-      dispatch(actions.removeFromNav(title))
+    removeFromNav: (page) => {
+      dispatch(actions.removeFromNav(page))
     },
-    togglePublish: (title) => {
-      dispatch(actions.togglePublish(title))
+    togglePublish: (page, index) => {
+      dispatch(actions.togglePublish(page, index))
     },
-    toggleNav: (title) => {
-      dispatch(actions.toggleNav(title))
+    toggleNav: (page, index) => {
+      dispatch(actions.toggleNav(page, index))
     },
-    toggleNavPublish: (title) => {
-      dispatch(actions.toggleNavPublish(title))
+    toggleNavPublish: (page, index) => {
+      dispatch(actions.toggleNavPublish(page, index))
+    },
+    deletePage: (id) => {
+      dispatch(actions.deletePage(id))
     }
   }
 }
