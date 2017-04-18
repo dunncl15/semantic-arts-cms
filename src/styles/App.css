@@ -5,10 +5,3 @@
 @import './AdminPageCard.css';
 @import './UserNavigation.css';
 @import './Page.css';
-
-@media screen and (min-width: 768px) {
-  .main-content {
-    display: flex;
-    position: relative;
-  }
-}
