@@ -53,21 +53,22 @@ export default class CreatePage extends Component {
   }
 
   render() {
-    const { page } = this.props;
+    const { page, router } = this.props;
     const { title, content } = this.state;
     return (
       <section className="create-page-wrap">
-        {page ? <h2>Edit - {page.title}</h2> : <h2>Create Page</h2>}
+        {page ? <h2>Edit - { page.title }</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
+          { router.location.pathname.includes('/admin/new-page') &&
           <input type='text'
                  id='title'
                  name='title'
                  value={title}
                  placeholder='Page title'
                  onChange={(e) => this.handleChange(e)}
-          />
+          /> }
           <Editor handleChange={this.handleEdit.bind(this)}
-                  content={content}
+                  page={page}
           />
           <button className='save-btn'
                   onClick={(e) => this.handleClick(e)}>
