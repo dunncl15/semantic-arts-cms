@@ -16,7 +16,7 @@ const App = ({ pages, history, location }) => {
       }}/>
       <Route path='/pages/:title' render={ ({ match }) => {
         const page = pages.find(page => page.title.toLowerCase() === match.params.title.toLowerCase());
-        return page.published ? <Page page={page} /> : <div>Not Found</div>
+        return !page || !page.published ? <h1 className='notfound'>{'<Page Not Found>'}</h1> : <Page page={page} />;
       }} />
       <Route path='/admin' component={ Header } />
       <section className='main-content'>
