@@ -1,51 +1,69 @@
 import React, { Component } from 'react';
-import RichTextEditor from 'react-rte';
+import Editor from './Editor.js';
 
 export default class CreatePage extends Component {
   constructor() {
     super();
     this.state = {
       title: '',
-      body: '',
-      published: false
+      content: '',
+      published: false,
+      navigation: false,
+      id: Date.now()
+    }
+  }
+
+  componentDidMount() {
+    const { page } = this.props;
+    if (page) {
+      this.setState({
+        title: page.title,
+        content: page.content
+       })
     }
   }
 
   handleChange(e) {
-    const { name, value } = e.target;
     this.setState({
-      [name]: value
+      title: e.target.value
     })
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.props.addPage(this.state);
-    this.setState({
-      title: '',
-      body: ''
-    })
+    const { page, addPage, editPage, history } = this.props;
+    if (!page) {
+      addPage(this.state)
+    }
+    if (page && !page.published) {
+      editPage(this.state)
+    }
+    this.setState({ title: '' })
+    history.push('/admin/pages');
+  }
+
+  handleEdit(e) {
+    this.setState({ content: e })
   }
 
   render() {
+    const { page, router } = this.props;
+    const { title } = this.state;
     return (
       <section className="create-page-wrap">
-        <h2>Create Page</h2>
+        {page ? <h2>Edit - { page.title }</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
-          <label htmlFor='title'>Title:</label>
-          <input type='text'
+        { router.location.pathname.includes('/admin/new-page') &&
+        <input type='text'
                  id='title'
                  name='title'
-                 value={this.state.title}
+                 value={title}
+                 placeholder='Page title'
                  onChange={(e) => this.handleChange(e)}
+          /> }
+          <Editor handleChange={this.handleEdit.bind(this)}
+                  page={page}
           />
-          <label htmlFor='body'>Body:</label>
-          <textarea type='text'
-                    id='body'
-                    name='body'
-                    value={this.state.body}
-                    onChange={(e) => this.handleChange(e)}>
-          </textarea>
           <button className='save-btn'
                   onClick={(e) => this.handleClick(e)}>
                   Save page

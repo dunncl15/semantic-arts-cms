@@ -1,19 +1,19 @@
 .create-page-wrap {
-  width: 95%;
   margin: 0 auto;
+  background-color: #fff;
 }
 
-.create-page-wrap > h3 {
+.create-page-wrap > h2 {
   width: 95%;
-  margin: 20px auto;
+  padding: 20px 0 0 0;
+  margin: 0 auto 20px auto;
   color: #3CA6CB;
 }
 
 .create-page {
-  width: 95%;
+  width: 98%;
   margin: 0 auto;
-  padding: 20px 5px;
-  background-color: #fff;
+  padding: 20px 10px 40px;
   border-radius: 2px;
 }
 
@@ -21,13 +21,50 @@
   display: block;
 }
 
-label {
-  width: 95%;
-  margin: 0 auto;
+#title {
+  margin: 0 auto 20px auto;
+  padding: 10px 5px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
-#title,
-#body {
-  width: 95%;
-  margin: 0 auto 20px auto;
+#title::-webkit-input-placeholder {
+  font-family: 'Georgia', sans-serif;
+  font-size: 1.25em;
+  color: #c2c2c2;
+}
+
+.RichTextEditor__root___2QXK- {
+  height: 400px;
+  overflow: auto;
+}
+
+.save-btn {
+  margin: 10px auto;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #3CA6CB;
+  border-radius: 3px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Georgia', sans-serif;
+  font-size: .9em;
+}
+
+.save-btn:hover {
+  background-color: #27738e;
+}
+
+@media screen and (min-width: 768px) {
+
+  .create-page-wrap {
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    right: 25px;
+    top: 140px;
+  }
+
 }
