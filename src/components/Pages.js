@@ -11,6 +11,7 @@ const Pages = ({ pages, userNav, history }) => {
       {pages.map((page, i) =>
         <AdminPageCardContainer
           {...page}
+          i={i}
           userNav={userNav}
           history={history}
           key={i}
