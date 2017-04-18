@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
 .pages-container {
   padding: 2.5%;
 }
 
 .public-page {
   color: #444;
+}
+
+.notfound {
+  color: #919191;
+  font-family: 'Source Code Pro', monospace, sans-serif;
+  text-align: center;
 }

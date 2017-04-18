@@ -1,6 +1,6 @@
 .nav-bar {
   background-color: #3CA6CB;
-  margin: 100px 0 0 0;
+  margin: 40px 0 0 0;
 }
 
 .nav-bar ul {
@@ -43,5 +43,6 @@
     position: fixed;
     width: 25%;
     height: 100vh;
+    margin: 18px 0 0 0;
   }
 }
