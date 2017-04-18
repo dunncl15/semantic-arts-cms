@@ -34,5 +34,5 @@ describe('user nav reducer', () => {
     const action = { type: 'REMOVE_FROM_NAV', page: page };
 
     expect(userNav(state, action)).toEqual(initialState)
-  })
-})
+  });
+});
