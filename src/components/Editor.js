@@ -10,8 +10,10 @@ export default class Editor extends Component {
   }
 
   componentDidMount() {
-    if (this.props.content) {
-      this.setState({ value: this.props.content })
+    const { page } = this.props;
+    if (page) {
+      console.log('hit');
+      this.setState({ value: RichTextEditor.createValueFromString(page.content, 'html') })
     }
   }
 
