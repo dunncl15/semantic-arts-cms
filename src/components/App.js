@@ -14,7 +14,7 @@ const App = ({ pages, history, location }) => {
       <Route path='/' render={ ({ location }) => {
         return !location.pathname.includes('/admin') ? <UserNavigationContainer /> : null;
       }}/>
-      <Route path='/pages/:title' render={ ({ match }) => {
+      <Route path='/:title' render={ ({ match }) => {
         const page = pages.find(page => page.title.toLowerCase() === match.params.title.toLowerCase());
         return !page || !page.published ? <h1 className='notfound'>{'<Page Not Found>'}</h1> : <Page page={page} />;
       }} />

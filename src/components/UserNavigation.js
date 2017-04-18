@@ -13,7 +13,7 @@ const UserNavigation = ({ userNav }) => {
         <NavLink className='nav-item'
                  activeClassName='active'
                  key={i}
-                 to={`/pages/${page.title.toLowerCase()}`}>
+                 to={`/${page.title.toLowerCase()}`}>
           <li>{ page.title }</li>
         </NavLink>
       )}
