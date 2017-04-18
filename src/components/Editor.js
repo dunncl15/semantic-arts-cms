@@ -12,7 +12,6 @@ export default class Editor extends Component {
   componentDidMount() {
     const { page } = this.props;
     if (page) {
-      console.log('hit');
       this.setState({ value: RichTextEditor.createValueFromString(page.content, 'html') })
     }
   }
