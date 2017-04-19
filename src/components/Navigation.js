@@ -13,10 +13,9 @@ const Navigation = () => {
                className="menu-item"
                activeClassName='active'>
                <li>
-                 <img
-                  className="nav-icon"
-                  src={homeIcon}
-                  alt='home-icon'
+                 <img className="nav-icon"
+                      src={homeIcon}
+                      alt='home-icon'
                   />
                  Dashboard
                </li>
@@ -25,10 +24,9 @@ const Navigation = () => {
                className="menu-item"
                activeClassName='active'>
                <li>
-                 <img
-                  className="nav-icon"
-                  src={pageIcon}
-                  alt='home-icon'
+                 <img className="nav-icon"
+                      src={pageIcon}
+                      alt='home-icon'
                   />
                  Pages
                </li>
@@ -37,10 +35,9 @@ const Navigation = () => {
                className="menu-item"
                activeClassName='active'>
                <li>
-                 <img
-                  className="nav-icon"
-                  src={pencilIcon}
-                  alt='home-icon'
+                 <img className="nav-icon"
+                      src={pencilIcon}
+                      alt='home-icon'
                   />
                  Create Page
                </li>
