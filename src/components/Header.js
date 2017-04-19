@@ -5,7 +5,7 @@ import logo from '../styles/images/logo.png'
 const Header = ({ history }) => {
   return (
     <header>
-      <img src={logo} className='app-title' />
+      <img src={logo} className='app-title' alt='semantic arts logo' />
       <Link to='/'>Sign out</Link>
     </header>
   )
