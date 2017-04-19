@@ -27,11 +27,11 @@
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 3px;
+  font-size: 1.25em;
 }
 
 #title::-webkit-input-placeholder {
   font-family: 'Georgia', sans-serif;
-  font-size: 1.25em;
   color: #c2c2c2;
 }
 

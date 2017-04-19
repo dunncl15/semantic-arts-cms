@@ -29,17 +29,32 @@ export default class CreatePage extends Component {
     })
   }
 
+  handleTitleCheck({ page, pages, addPage, history }) {
+    const savedPage = pages.find(page => page.title === this.state.title);
+    if (savedPage) {
+      alert('A page with this title already exists. Please create pages with unique titles.');
+      this.setState({ title: '' })
+    } else {
+      addPage(this.state);
+      history.push('/admin/pages');
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
-    const { page, addPage, editPage, history } = this.props;
-    if (!page) {
+    const { page, addPage, editPage, pages, history } = this.props;
+    if (!page && !pages.length) {
       addPage(this.state)
+      history.push('/admin/pages');
+    }
+    if (!page && pages.length) {
+      this.handleTitleCheck({ page, pages, addPage, history })
     }
     if (page && !page.published) {
       editPage(this.state)
+      history.push('/admin/pages');
     }
     this.setState({ title: '' })
-    history.push('/admin/pages');
   }
 
   handleEdit(e) {
@@ -54,7 +69,7 @@ export default class CreatePage extends Component {
         {page ? <h2>Edit - { page.title }</h2> : <h2>Create Page</h2>}
         <form className='create-page'>
         { router.location.pathname.includes('/admin/new-page') &&
-        <input type='text'
+          <input type='text'
                  id='title'
                  name='title'
                  value={title}
