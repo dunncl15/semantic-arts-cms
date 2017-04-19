@@ -6,6 +6,7 @@
   height: 175px;
   background-color: #fff;
   border-radius: 2px;
+  box-shadow: 0px 12px 34px -12px rgba(0,0,0,0.3);
 }
 
 .page-title {
