@@ -9,7 +9,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import { pages } from './reducers/pagesReducer';
-import { userNav } from './reducers/userNavReducer';
+// import { userNav } from './reducers/userNavReducer';
 import AppContainer from './containers/AppContainer';
 import './index.css';
 
@@ -19,7 +19,6 @@ const middleware = routerMiddleware(history);
 const store = createStore(
   combineReducers({
     pages,
-    userNav,
     router: routerReducer
   }), devTools, applyMiddleware(middleware, thunk, logger));
 
