@@ -1,16 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { handleNav, handlePublish, handleDelete, checkPubStatus } from '../helpers/AdminPageCardHelper';
+import { handlePublish, handleNav, checkPubStatus, handleDelete } from '../helpers/AdminPageCardHelper';
 import cloudPublish from '../styles/images/cloud-upload.svg';
 import cloudUnpublish from '../styles/images/cloud-unpublish.svg';
 import pencil from '../styles/images/pencil-blue.svg';
 import add from '../styles/images/add-icon.svg';
 import deleteIcon from '../styles/images/delete.svg';
 
-const AdminPageCard = ({ userNav, addToNav, removeFromNav, history,
-                         togglePublish, toggleNav, toggleNavPublish, deletePage,
-                         title, content, id, published, navigation, i }) => {
+const AdminPageCard = ({  pages, history, togglePublish, toggleNavPublish, toggleNav,
+                          deletePage, title, content, id, published, navigation, i }) => {
 
   const btnClass = classNames({ 'unpublish': published, 'publish': !published })
   return (
@@ -18,16 +17,15 @@ const AdminPageCard = ({ userNav, addToNav, removeFromNav, history,
       <h3 className='page-title'>{ title }</h3>
       <div className='page-body' dangerouslySetInnerHTML={{__html: content}}></div>
       <button className='delete-btn'
-              onClick={() => handleDelete({ published, id, deletePage })}>
+              onClick={() => handleDelete({ published, id, deletePage, history })}>
         <img className='delete-icon'
              src={deleteIcon}
              alt='delete page'
         />
       </button>
       <button className={btnClass}
-              onClick={ () => handlePublish({ userNav, addToNav, removeFromNav,
-                                              togglePublish, toggleNav, toggleNavPublish,
-                                              title, content, id, published, navigation, i })}>
+              onClick={() => handlePublish({ pages, togglePublish, toggleNavPublish,
+                                             title, content, id, published, navigation }, i)}>
         <img className='cloud-icon'
              src={published ? cloudUnpublish : cloudPublish}
              alt='cloud icon'
@@ -44,9 +42,8 @@ const AdminPageCard = ({ userNav, addToNav, removeFromNav, history,
           Edit page
         </button>
         <button className='add-to-nav-btn'
-                onClick={ () => handleNav({ userNav, addToNav, removeFromNav,
-                                            togglePublish, toggleNav, toggleNavPublish,
-                                            title, content, id, published, navigation, i }) }>
+                onClick={ () => handleNav({ pages, togglePublish, toggleNavPublish, toggleNav,
+                                            title, content, id, published, navigation }, i) }>
           <img className='add-icon'
                src={add}
                alt='plus icon'
