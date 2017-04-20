@@ -5,7 +5,7 @@ import homeIcon from '../styles/images/home-icon.svg';
 import pencilIcon from '../styles/images/pencil-icon.svg';
 import pageIcon from '../styles/images/page-icon.svg';
 
-const Navigation = () => {
+const Navigation = ({ location }) => {
   return (
     <aside className='nav-bar'>
      <ul>
@@ -39,7 +39,7 @@ const Navigation = () => {
                       src={pencilIcon}
                       alt='home-icon'
                   />
-                 Create Page
+                 { location.pathname.includes('/edit') ? 'Edit' : 'Create Page' }
                </li>
       </NavLink>
      </ul>
