@@ -27,6 +27,7 @@
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 3px;
+  color: #666;
   font-size: 1.25em;
 }
 
@@ -36,6 +37,7 @@
 }
 
 .RichTextEditor__root___2QXK- {
+  color: #666;
   height: 400px;
   overflow: auto;
 }
@@ -63,7 +65,7 @@
     width: 70%;
     margin: 0 auto;
     position: absolute;
-    right: 25px;
+    right: 20px;
     top: 140px;
   }
 
