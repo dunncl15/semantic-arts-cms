@@ -35,7 +35,7 @@
 .nav-item:hover,
 .nav-item.active {
   background-color: #27738E;
-  border-bottom: 2px solid #3CA6CB;
+  border-bottom: 3px solid #3CA6CB;
   color: #fff;
 }
 
