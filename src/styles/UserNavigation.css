@@ -35,6 +35,7 @@
 .nav-item:hover,
 .nav-item.active {
   background-color: #27738E;
+  border-bottom: 2px solid #3CA6CB;
   color: #fff;
 }
 
@@ -68,8 +69,10 @@
     background-color: #3CA6CB;
   }
 
+  .nav-item.active,
   .nav-item.active:hover {
     background: #27738E;
+    border-bottom: 3px solid #3CA6CB;
   }
 
   .home {

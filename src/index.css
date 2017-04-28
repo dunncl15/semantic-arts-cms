@@ -6,9 +6,10 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  background-color: #ECF0F1;
+  background-color: #bcc3c4;
   font-family: 'Georgia', sans-serif;
   font-size: 16px;
+  max-width: 1300px;
 }

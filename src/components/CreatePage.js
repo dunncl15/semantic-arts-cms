@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Editor from './Editor.js';
+import showError from '../styles/images/security.svg';
 
 export default class CreatePage extends Component {
   constructor() {
@@ -9,7 +10,8 @@ export default class CreatePage extends Component {
       content: '',
       published: false,
       navigation: false,
-      id: Date.now()
+      id: Date.now(),
+      error: ''
     }
   }
 
@@ -32,8 +34,7 @@ export default class CreatePage extends Component {
   handleTitleCheck({ page, pages, addPage, history }) {
     const savedPage = pages.find(page => page.title === this.state.title);
     if (savedPage) {
-      alert('A page with this title already exists. Please create pages with unique titles.');
-      this.setState({ title: '' })
+      this.setState({ error: `Page titles must be unique. A page with the title, "${savedPage.title}" already exists.` })
     } else {
       addPage(this.state);
       history.push('/admin/pages');
@@ -43,7 +44,7 @@ export default class CreatePage extends Component {
   handleClick(e) {
     e.preventDefault();
     const { page, addPage, editPage, pages, history } = this.props;
-    if (!page && !pages.length) {
+    if (!pages.length) {
       addPage(this.state)
       history.push('/admin/pages');
     }
@@ -63,7 +64,7 @@ export default class CreatePage extends Component {
 
   render() {
     const { page, router } = this.props;
-    const { title } = this.state;
+    const { title, content, error } = this.state;
     return (
       <section className="create-page-wrap">
         {page ? <h2>Edit - { page.title }</h2> : <h2>Create Page</h2>}
@@ -79,7 +80,10 @@ export default class CreatePage extends Component {
           <Editor handleChange={this.handleEdit.bind(this)}
                   page={page}
           />
+          { error ? <p className='error-message'>
+          <img className='error-icon' src={showError} />{ error }</p> : null }
           <button className='save-btn'
+                  disabled={ !title || !content ? true : false }
                   onClick={(e) => this.handleClick(e)}>
                   Save page
           </button>

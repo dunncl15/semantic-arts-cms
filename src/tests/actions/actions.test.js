@@ -53,29 +53,6 @@ describe('Actions', () => {
     expect(createdActions[1]).toEqual(editAction);
   });
 
-  it('ADD_TO_NAV', () => {
-    let addToNavAction = { type: 'ADD_TO_NAV', page: mockPage }
-
-    store.dispatch(actions.addToNav(mockPage));
-    let createdAction = store.getActions();
-
-    expect(createdAction.length).toEqual(1);
-    expect(createdAction[0]).toEqual(addToNavAction)
-  });
-
-  it('REMOVE_FROM_NAV', () => {
-    let addToNavAction = { type: 'ADD_TO_NAV', page: mockPage }
-    let removeFromNavAction = { type: 'REMOVE_FROM_NAV', page: mockPage}
-
-    store.dispatch(actions.addToNav(mockPage))
-    store.dispatch(actions.removeFromNav(mockPage));
-
-    let createdActions = store.getActions();
-
-    expect(createdActions.length).toEqual(2);
-    expect(createdActions[1]).toEqual(removeFromNavAction);
-  });
-
   it('TOGGLE_PUBLISH', () => {
     let togglePublishAction = { type: 'TOGGLE_PUBLISH', page: mockPage, index: mockIndex }
 
