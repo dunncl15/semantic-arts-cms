@@ -1,6 +1,6 @@
 .nav-bar {
   background-color: #3CA6CB;
-  margin: 40px 0 0 0;
+  margin: 39px 0 0 0;
 }
 
 .nav-bar ul {
@@ -39,10 +39,21 @@
 }
 
 @media screen and (min-width: 768px) {
+
   .nav-bar {
     position: fixed;
     width: 25%;
     height: 100vh;
-    margin: 18px 0 0 0;
+    margin: 17px 0 0 0;
   }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .nav-bar {
+    width: 20%;
+    max-width: 260px;
+  }
+
 }
