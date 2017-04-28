@@ -1,6 +1,7 @@
 .create-page-wrap {
   margin: 0 auto;
   background-color: #fff;
+  height: 100vh;
 }
 
 .create-page-wrap > h2 {
@@ -85,11 +86,17 @@
 @media screen and (min-width: 768px) {
 
   .create-page-wrap {
-    width: 70%;
-    margin: 0 auto;
-    position: absolute;
-    right: 20px;
-    top: 140px;
+    width: 75%;
+    margin: 0 0 0 auto;
+    padding: 25px;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .create-page-wrap {
+    width: 80%;
   }
 
 }
