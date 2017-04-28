@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .75);
+  z-index: 15;
+}
+
+.model-content {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background: #ECF0F1;
+    border-radius: 2px;
+    overflow: auto;
+    outline: none;
+}
+
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #CE5544;
+  border-style: none;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.public-page {
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+
+  .model-content {
+    width: 85%;
+    height: 85%;
+    margin: auto;
+  }
+
+}
